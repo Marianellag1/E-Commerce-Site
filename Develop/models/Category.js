@@ -17,8 +17,6 @@ Category.init( //   * `Category`
       type: DataTypes.STRING, //   * String.
       allowNull: false//   * Doesn't allow null values.
     }
-
-    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
   },
   {
     sequelize,

@@ -4,7 +4,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model {}
+class Product extends Model { }
 
 // set up fields and rules for Product model
 Product.init( //   * `Product`
@@ -41,8 +41,7 @@ Product.init( //   * `Product`
         model: 'category',
         key: 'id',
       }
-    }
-    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+    },
   },
   {
     sequelize,
@@ -51,8 +50,8 @@ Product.init( //   * `Product`
     underscored: true,//sets anything camel case to underscore = _
     modelName: 'product',
   }
-  );
-  
-  module.exports = Product;
-  
+);
+
+module.exports = Product;
+
   //act5 ins

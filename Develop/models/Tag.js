@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Tag extends Model {}
+class Tag extends Model { }
 
 Tag.init( //   * `Tag`
   {
@@ -15,8 +15,7 @@ Tag.init( //   * `Tag`
     },
     tag_name: { // * `tag_name` 
       type: DataTypes.STRING //   * String.
-    }
-    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+    },
   },
   {
     sequelize,
@@ -25,8 +24,8 @@ Tag.init( //   * `Tag`
     underscored: true,
     modelName: 'tag',
   }
-  );
-  
-  module.exports = Tag;
-  
+);
+
+module.exports = Tag;
+
   //act5 ins
