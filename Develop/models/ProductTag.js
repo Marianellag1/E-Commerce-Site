@@ -4,46 +4,40 @@ const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
 
-//   * `ProductTag`
-ProductTag.init(
+ProductTag.init( //   * `ProductTag`
   {
     // define columns
-    // * `id`
-    productTag_id: {
-      //   * Integer.
-      type: DataTypes.INTEGER,
-      //   * Set as primary key.
-      primaryKey: true,
-      //   * Uses auto increment.
-      autoIncrement: true
-                                     //act5 ins
+    productTag_id: { // * `id`
+      type: DataTypes.INTEGER, //   * Integer.
+      allowNull: false, //   * Doesn't allow null values.
+      primaryKey: true, //   * Set as primary key.
+      autoIncrement: true //   * Uses auto increment.
     },
-
-
-  //   * Doesn't allow null values.????????
-
-
-
-  // * `product_id`
-
-  //   * Integer.
-
-  //   * References the `Product` model's `id`.
-
-  // * `tag_id`
-
-  //   * Integer.
-
-  //   * References the `Tag` model's `id`.
+    product_id: { // * `product_id`
+      type: DataTypes.INTEGER, //   * Integer.
+      references: { //   * References the `Product` model's `id`.
+        model: 'product',
+        key: 'id',
+      }
+    },
+    tag_id: { // * `tag_id`
+      type: DataTypes.INTEGER, //   * Integer.
+      references: {//   * References the `Tag` model's `id`.
+        model: 'tag',
+        key: 'id',
+      }
+    }
   // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'product_tag',
-  }
+},
+{
+  sequelize,
+  timestamps: false,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'product_tag',
+}
 );
 
 module.exports = ProductTag;
+
+//act5 ins

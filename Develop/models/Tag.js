@@ -4,30 +4,19 @@ const sequelize = require('../config/connection.js');
 
 class Tag extends Model {}
 
-//   * `Tag`
-Tag.init(
+Tag.init( //   * `Tag`
   {
     // define columns
-
-  // * `id`
-  tag_id: {
-    //   * Integer.
-    type: DataTypes.INTEGER,
-    //   * Set as primary key.
-    primaryKey: true,
-    //   * Uses auto increment.
-    autoIncrement: true,
-                               //act5 ins
-  },
-  
-  //   * Doesn't allow null values.?????
-  
-  
-
-  // * `tag_name`
-  
-  //   * String.
-  // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+    tag_id: { // * `id`
+      type: DataTypes.INTEGER, //   * Integer.
+      allowNull: false, //   * Doesn't allow null values.
+      primaryKey: true, //   * Set as primary key.
+      autoIncrement: true, //   * Uses auto increment.
+    },
+    tag_name: { // * `tag_name` 
+      type: DataTypes.STRING //   * String.
+    }
+    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
   },
   {
     sequelize,
@@ -36,6 +25,8 @@ Tag.init(
     underscored: true,
     modelName: 'tag',
   }
-);
-
-module.exports = Tag;
+  );
+  
+  module.exports = Tag;
+  
+  //act5 ins

@@ -4,32 +4,21 @@ const sequelize = require('../config/connection.js');
 
 class Category extends Model { }
 
-Category.init(
-  //   * `Category`
+Category.init( //   * `Category`
   {
     // define columns
-
-    // * `id`
-    category_id: {
-      //   * Integer.
-      type: DataTypes.INTEGER,
-      //   * Set as primary key.
-      primaryKey: true,
-      //   * Uses auto increment.
-      autoIncrement: true
-                                //act5 ins
+    category_id: {// * `id`
+      type: DataTypes.INTEGER, //   * Integer.
+      allowNull: false, //   * Doesn't allow null values. 
+      primaryKey: true, //   * Set as primary key.
+      autoIncrement: true //   * Uses auto increment.
     },
+    category_name: { // * `category_name`
+      type: DataTypes.STRING, //   * String.
+      allowNull: false//   * Doesn't allow null values.
+    }
 
-  //   * Doesn't allow null values. ????
-
-
-
-  // * `category_name`
-
-  //   * String.
-
-  //   * Doesn't allow null values.
-  // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
   },
   {
     sequelize,
@@ -41,3 +30,5 @@ Category.init(
 );
 
 module.exports = Category;
+
+  //act5 

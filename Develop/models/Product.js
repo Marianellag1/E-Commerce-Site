@@ -7,56 +7,42 @@ const sequelize = require('../config/connection');
 class Product extends Model {}
 
 // set up fields and rules for Product model
-//   * `Product`
-Product.init(
+Product.init( //   * `Product`
   {
     // define columns
-    // * `id`
-    product_id: {
-      //   * Integer.
-      type: DataTypes.INTEGER,
-      //   * Set as primary key.
-      primaryKey: true,
-      //   * Uses auto increment.
-      autoIncrement: true
-                                           //act5 ins
+    product_id: { // * `id`
+      type: DataTypes.INTEGER, //   * Integer.
+      allowNull: false,//   * Doesn't allow null values.
+      primaryKey: true, //   * Set as primary key.
+      autoIncrement: true //   * Uses auto increment.
     },
-  
-  
-  //   * Doesn't allow null values.?????
-  
-  
-
-  // * `product_name`
-  
-  //   * String.
-  
-  //   * Doesn't allow null values.
-
-  // * `price`
-  
-  //   * Decimal.
-  
-  //   * Doesn't allow null values.
-  
-  //   * Validates that the value is a decimal.
-
-  // * `stock`
-  
-  //   * Integer.
-  
-  //   * Doesn't allow null values.
-  
-  //   * Set a default value of `10`.
-  
-  //   * Validates that the value is numeric.
-
-  // * `category_id`
-  
-  //   * Integer.
-  
-  //   * References the `Category` model's `id`.
-  // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
+    product_name: { // * `product_name`
+      type: DataTypes.STRING, //   * String.
+      allowNull: false,//   * Doesn't allow null values.
+    },
+    price: { // * `price`
+      type: DataTypes.DECIMAL, //   * Decimal.
+      allowNull: false, //   * Doesn't allow null values.
+      validate: {
+        isDecimal: true, //   * Validates that the value is a decimal.
+      }
+    },
+    stock: { // * `stock`
+      type: DataTypes.INTEGER, //   * Integer.
+      allowNull: false, //   * Doesn't allow null values.
+      defaultValue: 10, //   * Set a default value of `10`.
+      validate: {
+        isNumeric: true, //   * Validates that the value is numeric.
+      }
+    },
+    category_id: { // * `category_id`
+      type: DataTypes.INTEGER, //   * Integer.
+      references: { //   * References the `Category` model's `id`.
+        model: 'category',
+        key: 'id',
+      }
+    }
+    // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
   },
   {
     sequelize,
@@ -65,6 +51,8 @@ Product.init(
     underscored: true,//sets anything camel case to underscore = _
     modelName: 'product',
   }
-);
-
-module.exports = Product;
+  );
+  
+  module.exports = Product;
+  
+  //act5 ins
