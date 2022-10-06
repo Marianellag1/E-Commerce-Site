@@ -10,12 +10,54 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
+  //   * `Product`
+
+  // * `id`
+  
+  //   * Integer.
+  
+  //   * Doesn't allow null values.
+  
+  //   * Set as primary key.
+  
+  //   * Uses auto increment.
+
+  // * `product_name`
+  
+  //   * String.
+  
+  //   * Doesn't allow null values.
+
+  // * `price`
+  
+  //   * Decimal.
+  
+  //   * Doesn't allow null values.
+  
+  //   * Validates that the value is a decimal.
+
+  // * `stock`
+  
+  //   * Integer.
+  
+  //   * Doesn't allow null values.
+  
+  //   * Set a default value of `10`.
+  
+  //   * Validates that the value is numeric.
+
+  // * `category_id`
+  
+  //   * Integer.
+  
+  //   * References the `Category` model's `id`.
+  // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: false,//set false to remove "created_at" and "updated_at" fields **from notes
     freezeTableName: true,
-    underscored: true,
+    underscored: true,//sets anything camel case to underscore = _
     modelName: 'product',
   }
 );
