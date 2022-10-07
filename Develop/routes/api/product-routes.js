@@ -8,15 +8,32 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+router.get('/', async (req, res) => {
+  const productData = await Product.findAll(// find all products
+    {
+      include: [{
+        model: Category, // be sure to include its associated Category and Tag data
+      },
+      {
+        model: Tag
+      }],
+    }
+  );
+  return res.json(productData);
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+router.get('/:id', async (req, res) => {
+  const productData = await Product.findOne(req.params.id); // find a single product by its `id`
+  include:[ // be sure to include its associated Category and Tag data
+  {
+    model: Category
+  },
+  {
+    model: Tag
+  }
+]
+  return res.json(productData);
 });
 
 // create new product
@@ -29,7 +46,8 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-//  > **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
+  //  > **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
+
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -94,8 +112,13 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+router.delete('/:id', async (req, res) => {
+  const productData = Product.destroy({// delete one product by its `id` value
+    where: {
+      product_id: req.params.product_id,
+    },
+  });
+  return res.json(productData);
 });
 
 module.exports = router;
