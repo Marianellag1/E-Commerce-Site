@@ -41,7 +41,7 @@ Product.init( //   * `Product`
         model: 'category',
         key: 'id',
       }
-    },
+    }
   },
   {
     sequelize,
