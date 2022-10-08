@@ -10,44 +10,44 @@ class Product extends Model { }
 Product.init( //   * `Product`
   {
     // define columns
-    product_id: { // * `id`
-      type: DataTypes.INTEGER, //   * Integer.
-      allowNull: false,//   * Doesn't allow null values.
-      primaryKey: true, //   * Set as primary key.
-      autoIncrement: true //   * Uses auto increment.
+    id: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    product_name: { // * `product_name`
-      type: DataTypes.STRING, //   * String.
-      allowNull: false,//   * Doesn't allow null values.
+    product_name: { 
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    price: { // * `price`
-      type: DataTypes.DECIMAL, //   * Decimal.
-      allowNull: false, //   * Doesn't allow null values.
+    price: { 
+      type: DataTypes.DECIMAL, //(10,2)
+      allowNull: false, 
       validate: {
-        isDecimal: true, //   * Validates that the value is a decimal.
+        isDecimal: true, 
       }
     },
-    stock: { // * `stock`
-      type: DataTypes.INTEGER, //   * Integer.
-      allowNull: false, //   * Doesn't allow null values.
-      defaultValue: 10, //   * Set a default value of `10`.
+    stock: { 
+      type: DataTypes.INTEGER, 
+      allowNull: false, 
+      defaultValue: 10, 
       validate: {
-        isNumeric: true, //   * Validates that the value is numeric.
+        isNumeric: true, 
       }
     },
-    category_id: { // * `category_id`
-      type: DataTypes.INTEGER, //   * Integer.
-      references: { //   * References the `Category` model's `id`.
+    category_id: { 
+      type: DataTypes.INTEGER, 
+      references: { 
         model: 'category',
         key: 'id',
-      }
-    }
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,//set false to remove "created_at" and "updated_at" fields **from notes
     freezeTableName: true,
-    underscored: true,//sets anything camel case to underscore = _
+    underscored: true,
     modelName: 'product',
   }
 );

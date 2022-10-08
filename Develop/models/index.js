@@ -15,12 +15,12 @@ Category.hasMany(Product,{ // Categories have many Products
 
 Product.belongsToMany(Tag,{ // Products belongToMany Tags (through ProductTag)
   through: 'ProductTag',
-  foreignKey: 'product_id'
+  foreignKey: 'product_id',
 });
   
 Tag.belongsToMany(Product,{ // Tags belongToMany Products (through ProductTag)
   through: 'ProductTag',
-  foreignKey: 'tag_id'
+  foreignKey: 'tag_id',
 });
 
 // > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.

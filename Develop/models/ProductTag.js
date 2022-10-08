@@ -7,25 +7,25 @@ class ProductTag extends Model { }
 ProductTag.init( //   * `ProductTag`
   {
     // define columns
-    productTag_id: { // * `id`
-      type: DataTypes.INTEGER, //   * Integer.
-      allowNull: false, //   * Doesn't allow null values.
-      primaryKey: true, //   * Set as primary key.
-      autoIncrement: true //   * Uses auto increment.
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    product_id: { // * `product_id`
-      type: DataTypes.INTEGER, //   * Integer.
-      references: { //   * References the `Product` model's `id`.
+    product_id: { 
+      type: DataTypes.INTEGER, 
+      references: { 
         model: 'product',
         key: 'id'
       }
     },
-    tag_id: { // * `tag_id`
-      type: DataTypes.INTEGER, //   * Integer.
-      references: {//   * References the `Tag` model's `id`.
+    tag_id: { 
+      type: DataTypes.INTEGER, 
+      references: {
         model: 'tag',
         key: 'id'
-      }
+      },
     },
   },
   {
@@ -39,4 +39,3 @@ ProductTag.init( //   * `ProductTag`
 
 module.exports = ProductTag;
 
-//act5 ins
