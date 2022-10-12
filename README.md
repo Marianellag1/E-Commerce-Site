@@ -21,17 +21,16 @@
 ---
 
 ## **Description of the Project**
-description blank for now
+This E-Commerce site allows user to obtain already category and stock of products. User will be able to update any product, delete and create product. All will display, when user decides to get all products, or to specifically get one single item from their unique id.
 
 
 
 ## **Installation**
-User will have to use the terminal=> see read me for instruc.
-
+In order for app to work, source schema.sql would have to be run first, followed by npm run seeds, to obtain information. Then user will run npm start to let live server allow insomnia to show user that all is working
 
 
 ## **Usage Information**
-User can update delete etc, => see readme for instruc.
+User will be able to keep track of stock and update as needed by either, adding, creating, updating or deleting products, categories and tags.
 
 
 
@@ -41,7 +40,7 @@ Anyone can contribute to the project, as long as the it is agreed upon by the au
 
 
 ## **Test Instructions**
-User will need to run server.js in terminal => see readme for instruc.
+With the help of insomnia, user will have to run schema.sql, npm run seeds and finally npm run start to test the site. When site is live, user will be able to test if site allows for updating, deleting, creating and searching for a specific product.
 
 
 
