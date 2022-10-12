@@ -1,4 +1,4 @@
-# E-Commerce-Site video link:
+# E-Commerce-Site video link: https://github.com/Marianellag1/E-Commerce-Site
 
 
 # **E-Commerce Site**
@@ -19,6 +19,8 @@
 
 
 ---
+![Screenshot 2022-10-11 223439](https://user-images.githubusercontent.com/110939445/195243994-c4bb0be8-8392-4635-b2ad-b9c1ebbae852.png)
+![Screenshot 2022-10-11 223521](https://user-images.githubusercontent.com/110939445/195244003-90ca25c1-3a71-455c-ab81-f34af65ac60e.png)
 
 ## **Description of the Project**
 This E-Commerce site allows user to obtain already category and stock of products. User will be able to update any product, delete and create product. All will display, when user decides to get all products, or to specifically get one single item from their unique id.
